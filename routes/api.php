@@ -16,3 +16,15 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::post('/teacher/register', 'TeachersController@register');
+Route::post('/teacher/login', 'TeachersController@login');
+Route::group(['middleware' => 'multiauth:teacher'], function() {
+   Route::get('/teacher/me', 'TeachersController@me');
+});
+
+// Route::post('/student/register', 'StudentsController@register');
+Route::post('/student/login', 'StudentsController@login');
+Route::group(['middleware' => 'multiauth:student'], function() {
+   Route::get('/student/me', 'StudentsController@me');
+});

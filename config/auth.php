@@ -46,6 +46,16 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'teacher' => [
+            'driver' => 'jwt',
+            'provider' => 'teachers',
+        ],
+
+        'student' => [
+            'driver' => 'jwt',
+            'provider' => 'students',
+        ],
     ],
 
     /*
@@ -69,6 +79,16 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        'teachers' => [
+            'driver' => 'eloquent',
+            'model' => App\Teacher::class,
+        ],
+
+        'students' => [
+            'driver' => 'eloquent',
+            'model' => App\Student::class,
         ],
 
         // 'users' => [
